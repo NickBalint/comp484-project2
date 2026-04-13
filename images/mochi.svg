@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320" role="img" aria-labelledby="title desc">
+  <title id="title">Mochi</title>
+  <desc id="desc">A cream colored cartoon dog portrait with pink accents.</desc>
+  <rect width="400" height="320" fill="#fff2ef" />
+  <ellipse cx="200" cy="185" rx="130" ry="108" fill="#f7d9bf" />
+  <ellipse cx="150" cy="138" rx="35" ry="58" fill="#efbfb4" />
+  <ellipse cx="250" cy="138" rx="35" ry="58" fill="#efbfb4" />
+  <circle cx="165" cy="175" r="12" fill="#2b1f1a" />
+  <circle cx="235" cy="175" r="12" fill="#2b1f1a" />
+  <ellipse cx="200" cy="215" rx="26" ry="19" fill="#fff4ea" />
+  <circle cx="200" cy="207" r="7" fill="#443029" />
+  <path d="M182 226c12 13 24 13 36 0" stroke="#443029" stroke-width="5" fill="none" stroke-linecap="round" />
+  <text x="200" y="300" text-anchor="middle" font-size="30" font-family="Verdana, sans-serif" fill="#ad6d63">Mochi</text>
+</svg>

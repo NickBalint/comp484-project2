@@ -12,31 +12,40 @@
   </head>
   <body>
     <header>
-      <h1>
-        This is your Giga Pet
-      </h1>
+      <h1>This is your Giga Pet</h1>
     </header>
 
-    <main>
+    <main class="pet-app">
       <section class="pet-image-container">
-         <!-- Replace pet image with your own pet image -->
-        <img class="pet-image" src="">
+        <img class="pet-image" src="images/hound.jpg" alt="A happy hound gigapet">
       </section>
+
       <section class="dashboard">
+        <h2 class="pet-title">Daily Pet Dashboard</h2>
+        <div>
+          Active Pet:
+          <strong>
+            <select class="pet-select" aria-label="Select pet"></select>
+          </strong>
+        </div>
         <div>Name: <strong><span class="name"></span></strong></div>
         <div>Weight: <strong><span class="weight"></span> pounds</strong></div>
         <div>Happiness: <strong><span class="happiness"></span> tail wags (per min)</strong></div>
+        <div>Cleanliness: <strong><span class="cleanliness"></span>%</strong></div>
+
         <div class="button-container">
-          <button class="treat-button">
-            Treat
-          </button>
-          <button class="play-button">
-            Play
-          </button>
-          <button class="exercise-button">
-            Exercise
-          </button>
+          <button class="treat-button">Treat</button>
+          <button class="play-button">Play</button>
+          <button class="exercise-button">Exercise</button>
+          <button class="groom-button">Groom</button>
         </div>
+
+        <p class="pet-comment" aria-live="polite"></p>
+
+        <section class="history-panel" aria-live="polite">
+          <h3>Recent Actions</h3>
+          <ul class="history-list"></ul>
+        </section>
       </section>
     </main>
 

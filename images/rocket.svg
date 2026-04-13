@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320" role="img" aria-labelledby="title desc">
+  <title id="title">Rocket</title>
+  <desc id="desc">A dark gray cartoon dog portrait with teal accents.</desc>
+  <rect width="400" height="320" fill="#dde8ea" />
+  <ellipse cx="200" cy="185" rx="130" ry="108" fill="#5f6f77" />
+  <ellipse cx="150" cy="138" rx="35" ry="58" fill="#4d5a61" />
+  <ellipse cx="250" cy="138" rx="35" ry="58" fill="#4d5a61" />
+  <circle cx="165" cy="175" r="12" fill="#0f1519" />
+  <circle cx="235" cy="175" r="12" fill="#0f1519" />
+  <ellipse cx="200" cy="215" rx="26" ry="19" fill="#bdd8d3" />
+  <circle cx="200" cy="207" r="7" fill="#112127" />
+  <path d="M182 226c12 13 24 13 36 0" stroke="#112127" stroke-width="5" fill="none" stroke-linecap="round" />
+  <text x="200" y="300" text-anchor="middle" font-size="30" font-family="Verdana, sans-serif" fill="#2f4f59">Rocket</text>
+</svg>
