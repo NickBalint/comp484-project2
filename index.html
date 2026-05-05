@@ -55,47 +55,89 @@
         Use this panel to reproduce the Chrome DevTools Console and JavaScript debugging tutorials directly inside Project 2.
       </p>
 
+      <!-- ================================================================
+           Lab Card Grid — 4 cards covering all required DevTools topics.
+           Each card maps directly to a section of script.js (see SECTION
+           comments there). Buttons call jQuery .on('click') handlers.
+           ================================================================ -->
       <div class="lab-grid">
+
+        <!-- CARD 1: Message Logging
+             Covers: Log Info, Log Warning, Log Error, Log Table,
+                     Log Group, Log Custom.
+             Presentation tip: click buttons one at a time, then show the
+             formatted output in the Console. -->
         <article class="lab-card">
           <h3>Message Logging</h3>
           <div class="button-container lab-buttons">
+            <!-- console.info() — blue info icon -->
             <button class="log-info-btn">Log Info</button>
+            <!-- console.warn() + console.trace() — yellow warning with stack -->
             <button class="log-warning-btn">Log Warning</button>
+            <!-- console.error() — red error icon with stack trace -->
             <button class="log-error-btn">Log Error</button>
+            <!-- console.table() — renders pet array as a sortable grid -->
             <button class="log-table-btn">Log Table</button>
+            <!-- console.group() / groupEnd() — collapsible label -->
             <button class="log-group-btn">Log Group</button>
+            <!-- console.log('%c...') — CSS-styled custom message -->
             <button class="log-custom-btn">Log Custom</button>
+            <!-- console.clear() — wipes the Console -->
             <button class="clear-console-btn">Clear Console</button>
           </div>
           <p class="hint">Open DevTools Console and click each button to view formatted messages.</p>
         </article>
 
+        <!-- CARD 2: Browser-Logged Messages
+             Covers: Cause 404 network error, Cause TypeError, Cause Violation.
+             These messages come from the browser itself, not our console.* calls.
+             Presentation tip: enable Verbose in Log Levels before clicking Violation. -->
         <article class="lab-card">
           <h3>Browser Messages</h3>
           <div class="button-container lab-buttons">
+            <!-- fetch() a non-existent file → browser logs a 404 network error -->
             <button class="cause-404-btn">Cause 404 Network Error</button>
+            <!-- access .textContent on null → browser logs an uncaught TypeError -->
             <button class="cause-typeerror-btn">Cause TypeError</button>
+            <!-- 3-second busy loop → browser logs a [Violation] message (Verbose only) -->
             <button class="cause-violation-btn">Cause Violation</button>
           </div>
           <p class="hint">For Violation messages, make sure <strong>Verbose</strong> is enabled in Console log levels.</p>
         </article>
 
+        <!-- CARD 3: Filter Messages Checklist
+             Covers: filter by log level, text, regex, source, user messages.
+             This card is a step-by-step guide for the audience to follow in
+             DevTools after running the logging demos above. -->
         <article class="lab-card">
           <h3>Filter Messages Checklist</h3>
           <ol class="filter-checklist">
+            <!-- Step 1: use the Log Levels drop-down (top-left of Console) -->
             <li>Filter by log level with the Console <strong>Log Levels</strong> drop-down.</li>
+            <!-- Step 2: type a plain string into the Console filter box -->
             <li>Filter by text: try <strong>Rocket</strong> in the Console filter box.</li>
+            <!-- Step 3: regex patterns must start and end with / -->
             <li>Filter by regular expression: try <strong>/^Pet/</strong>.</li>
+            <!-- Step 4: open the sidebar with the speech-bubble icon -->
             <li>Filter by message source in the Console sidebar (<strong>Show Console Sidebar</strong>).</li>
+            <!-- Step 5: click the "User Messages" category in the sidebar -->
             <li>Filter by user messages using the sidebar's <strong>User Messages</strong> category.</li>
           </ol>
         </article>
 
+        <!-- CARD 4: JavaScript Debugging Demo
+             Covers: reproduce a bug, Sources UI, line-of-code breakpoint,
+                     Scope pane, Watch expression, Console, apply a fix.
+             The bug: "5" + "1" = "51" because .val() returns strings.
+             The fix: wrap both inputs in parseInt() for numeric addition. -->
         <article class="lab-card">
           <h3>Debug JavaScript Bug</h3>
           <p>
             This mini calculator intentionally starts with a bug similar to the DevTools tutorial. It concatenates strings instead of adding numbers.
           </p>
+
+          <!-- Input fields: .val() always returns a string in jQuery,
+               which is what causes the concatenation bug. -->
           <div class="calc-row">
             <label for="addend-1">Number 1</label>
             <input id="addend-1" class="calc-input" type="text" value="5">
@@ -104,12 +146,20 @@
             <label for="addend-2">Number 2</label>
             <input id="addend-2" class="calc-input" type="text" value="1">
           </div>
+
           <div class="button-container lab-buttons">
+            <!-- Triggers runBuggyCalculator() — shows 5 + 1 = 51 in bug mode -->
             <button class="run-buggy-calc-btn">Run Buggy Add</button>
+            <!-- Triggers applyCalculatorFix() — switches to parseInt, shows 6 -->
             <button class="apply-fix-btn">Apply Fix</button>
+            <!-- Triggers resetCalculatorFix() — restores bug for re-demo -->
             <button class="reset-fix-btn">Reset Bug</button>
           </div>
+
+          <!-- Live region updates as calc runs; screen-readers announce changes -->
           <p class="calc-output" aria-live="polite">5 + 1 = 51 (buggy mode)</p>
+
+          <!-- Step-by-step debugging walkthrough for presentation -->
           <ol class="filter-checklist">
             <li>Reproduce bug with inputs <strong>5</strong> and <strong>1</strong>.</li>
             <li>Open <strong>Sources</strong>, set breakpoints in <strong>runBuggyCalculator</strong> and <strong>computeSum</strong>.</li>
@@ -118,6 +168,7 @@
             <li>Click <strong>Apply Fix</strong> and verify output changes to numeric addition.</li>
           </ol>
         </article>
+
       </div>
     </section>
 
