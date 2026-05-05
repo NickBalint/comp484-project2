@@ -28,6 +28,21 @@ $(function () {
   $('.exercise-button').on('click', clickedExerciseButton);
   $('.groom-button').on('click', clickedGroomButton);
   $('.pet-select').on('change', changedPetSelection);
+  $('.log-info-btn').on('click', logInfoMessage);
+  $('.log-warning-btn').on('click', logWarningMessage);
+  $('.log-error-btn').on('click', logErrorMessage);
+  $('.log-table-btn').on('click', logTableMessage);
+  $('.log-group-btn').on('click', logGroupMessage);
+  $('.log-custom-btn').on('click', logCustomMessage);
+  $('.clear-console-btn').on('click', clearConsole);
+  $('.cause-404-btn').on('click', cause404Error);
+  $('.cause-typeerror-btn').on('click', causeTypeError);
+  $('.cause-violation-btn').on('click', causeViolation);
+  $('.run-buggy-calc-btn').on('click', runBuggyCalculator);
+  $('.apply-fix-btn').on('click', applyCalculatorFix);
+  $('.reset-fix-btn').on('click', resetCalculatorFix);
+
+  var useFixedCalculator = false;
 
   function buildPetSelector() {
     var $petSelect = $('.pet-select');
@@ -172,6 +187,110 @@ $(function () {
     });
   }
 
+  function logInfoMessage() {
+    console.info('Pet Info: %s is active with happiness=%d', pet_info.name, pet_info.happiness);
+  }
+
+  function logWarningMessage() {
+    console.warn('Pet Warning: %s cleanliness is at %d%%', pet_info.name, pet_info.cleanliness);
+    console.trace('Warning trace for grooming reminder');
+  }
+
+  function logErrorMessage() {
+    console.error('Pet Error: %s is out of treats. Refill inventory.', pet_info.name);
+  }
+
+  function logTableMessage() {
+    console.table(pets.map(function (pet) {
+      return {
+        name: pet.name,
+        weight: pet.weight,
+        happiness: pet.happiness,
+        cleanliness: pet.cleanliness
+      };
+    }));
+  }
+
+  function logGroupMessage() {
+    console.group('Pet Health Snapshot');
+    console.log('Name: %s', pet_info.name);
+    console.log('Weight: %d', pet_info.weight);
+    console.log('Happiness: %d', pet_info.happiness);
+    console.log('Cleanliness: %d', pet_info.cleanliness);
+    console.groupEnd();
+  }
+
+  function logCustomMessage() {
+    console.log(
+      '%cPet Custom%c ' + pet_info.name + ' wants to play!',
+      'padding:2px 6px;border:1px solid #c0392b;background:#ffe5e0;color:#6d1b12;font-weight:bold;border-radius:4px;',
+      'padding:2px 6px;border:1px solid #1f5d8b;background:#deefff;color:#0a3551;border-radius:4px;'
+    );
+  }
+
+  function clearConsole() {
+    console.clear();
+    console.info('Console cleared. Run logging buttons again for filter practice.');
+  }
+
+  function cause404Error() {
+    fetch('images/does-not-exist-' + Date.now() + '.png')
+      .then(function (response) {
+        if (!response.ok) {
+          throw new Error('Network response status: ' + response.status);
+        }
+      })
+      .catch(function (error) {
+        console.error('404 demo request failed:', error.message);
+      });
+  }
+
+  function causeTypeError() {
+    // Intentionally trigger an uncaught type error for DevTools practice.
+    var missingNode = document.querySelector('.definitely-missing-node');
+    missingNode.textContent = 'This line intentionally fails.';
+  }
+
+  function causeViolation() {
+    var start = performance.now();
+    while (performance.now() - start < 3000) {
+      // Busy loop for violation demo in the Console (enable Verbose level).
+      Math.sqrt(Math.random() * 1000000);
+    }
+    console.log('Violation demo complete. If Verbose is enabled, watch for a [Violation] message.');
+  }
+
+  function runBuggyCalculator() {
+    var addend1 = $('#addend-1').val();
+    var addend2 = $('#addend-2').val();
+    var sum = computeSum(addend1, addend2);
+    $('.calc-output').text(addend1 + ' + ' + addend2 + ' = ' + sum + (useFixedCalculator ? ' (fixed mode)' : ' (buggy mode)'));
+
+    console.log('Calculator run:', { addend1: addend1, addend2: addend2, sum: sum, typeOfSum: typeof sum });
+  }
+
+  function computeSum(addend1, addend2) {
+    if (useFixedCalculator) {
+      return parseInt(addend1, 10) + parseInt(addend2, 10);
+    }
+
+    // Intentional bug: string concatenation instead of numeric addition.
+    return addend1 + addend2;
+  }
+
+  function applyCalculatorFix() {
+    useFixedCalculator = true;
+    console.info('Fix applied: computeSum now parses numeric input.');
+    runBuggyCalculator();
+  }
+
+  function resetCalculatorFix() {
+    useFixedCalculator = false;
+    console.warn('Bug mode restored for debugging practice.');
+    runBuggyCalculator();
+  }
+
   renderHistory();
+  runBuggyCalculator();
 });
   

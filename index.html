@@ -49,6 +49,78 @@
       </section>
     </main>
 
+    <section class="devtools-lab" aria-labelledby="devtools-lab-title">
+      <h2 id="devtools-lab-title">Chrome DevTools Practice Lab</h2>
+      <p>
+        Use this panel to reproduce the Chrome DevTools Console and JavaScript debugging tutorials directly inside Project 2.
+      </p>
+
+      <div class="lab-grid">
+        <article class="lab-card">
+          <h3>Message Logging</h3>
+          <div class="button-container lab-buttons">
+            <button class="log-info-btn">Log Info</button>
+            <button class="log-warning-btn">Log Warning</button>
+            <button class="log-error-btn">Log Error</button>
+            <button class="log-table-btn">Log Table</button>
+            <button class="log-group-btn">Log Group</button>
+            <button class="log-custom-btn">Log Custom</button>
+            <button class="clear-console-btn">Clear Console</button>
+          </div>
+          <p class="hint">Open DevTools Console and click each button to view formatted messages.</p>
+        </article>
+
+        <article class="lab-card">
+          <h3>Browser Messages</h3>
+          <div class="button-container lab-buttons">
+            <button class="cause-404-btn">Cause 404 Network Error</button>
+            <button class="cause-typeerror-btn">Cause TypeError</button>
+            <button class="cause-violation-btn">Cause Violation</button>
+          </div>
+          <p class="hint">For Violation messages, make sure <strong>Verbose</strong> is enabled in Console log levels.</p>
+        </article>
+
+        <article class="lab-card">
+          <h3>Filter Messages Checklist</h3>
+          <ol class="filter-checklist">
+            <li>Filter by log level with the Console <strong>Log Levels</strong> drop-down.</li>
+            <li>Filter by text: try <strong>Rocket</strong> in the Console filter box.</li>
+            <li>Filter by regular expression: try <strong>/^Pet/</strong>.</li>
+            <li>Filter by message source in the Console sidebar (<strong>Show Console Sidebar</strong>).</li>
+            <li>Filter by user messages using the sidebar's <strong>User Messages</strong> category.</li>
+          </ol>
+        </article>
+
+        <article class="lab-card">
+          <h3>Debug JavaScript Bug</h3>
+          <p>
+            This mini calculator intentionally starts with a bug similar to the DevTools tutorial. It concatenates strings instead of adding numbers.
+          </p>
+          <div class="calc-row">
+            <label for="addend-1">Number 1</label>
+            <input id="addend-1" class="calc-input" type="text" value="5">
+          </div>
+          <div class="calc-row">
+            <label for="addend-2">Number 2</label>
+            <input id="addend-2" class="calc-input" type="text" value="1">
+          </div>
+          <div class="button-container lab-buttons">
+            <button class="run-buggy-calc-btn">Run Buggy Add</button>
+            <button class="apply-fix-btn">Apply Fix</button>
+            <button class="reset-fix-btn">Reset Bug</button>
+          </div>
+          <p class="calc-output" aria-live="polite">5 + 1 = 51 (buggy mode)</p>
+          <ol class="filter-checklist">
+            <li>Reproduce bug with inputs <strong>5</strong> and <strong>1</strong>.</li>
+            <li>Open <strong>Sources</strong>, set breakpoints in <strong>runBuggyCalculator</strong> and <strong>computeSum</strong>.</li>
+            <li>Inspect values in <strong>Scope</strong>, add watch expression <strong>typeof sum</strong>.</li>
+            <li>Use Console while paused to evaluate <strong>parseInt(addend1) + parseInt(addend2)</strong>.</li>
+            <li>Click <strong>Apply Fix</strong> and verify output changes to numeric addition.</li>
+          </ol>
+        </article>
+      </div>
+    </section>
+
     <!-- Your web-app is https, so your scripts need to be too -->
     <script src="https://code.jquery.com/jquery-2.2.1.min.js"
             integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="

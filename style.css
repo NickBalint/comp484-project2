@@ -162,6 +162,82 @@ h1 {
   color: var(--danger);
 }
 
+.devtools-lab {
+  max-width: 980px;
+  margin: 22px auto 0;
+  padding: 22px;
+  background: var(--card);
+  border: 2px solid #ead9c5;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(54, 39, 21, 0.08);
+}
+
+.devtools-lab h2 {
+  margin: 0 0 8px;
+  color: var(--accent-dark);
+}
+
+.devtools-lab > p {
+  margin: 0 0 14px;
+}
+
+.lab-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.lab-card {
+  background: #fff9f0;
+  border: 1px solid #ead9c5;
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.lab-card h3 {
+  margin: 0 0 10px;
+}
+
+.lab-buttons button {
+  min-width: 150px;
+}
+
+.hint {
+  margin: 10px 0 0;
+  font-size: 0.92rem;
+}
+
+.filter-checklist {
+  margin: 8px 0 0;
+  padding-left: 20px;
+}
+
+.filter-checklist li {
+  margin-bottom: 6px;
+}
+
+.calc-row {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.calc-input {
+  border: 1px solid #ddc7a8;
+  border-radius: 8px;
+  padding: 7px 9px;
+  font-size: 1rem;
+  background: #fffaf1;
+}
+
+.calc-output {
+  margin: 12px 0 0;
+  font-weight: 700;
+  color: var(--accent-dark);
+}
+
 @media (max-width: 760px) {
   body {
     padding: 14px;
@@ -170,5 +246,9 @@ h1 {
   .pet-app {
     grid-template-columns: 1fr;
     gap: 14px;
+  }
+
+  .lab-grid {
+    grid-template-columns: 1fr;
   }
 }
