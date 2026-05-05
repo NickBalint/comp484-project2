@@ -46,7 +46,3 @@ This project now includes a dedicated **Chrome DevTools Practice Lab** that impl
 	- `assets/devtools-actions-triggered.png`
 	- `assets/bug-reproduced.png`
 	- `assets/bug-fixed.png`
-
-### GitHub Submission
-
-Submit your branch or repository URL that contains these files and updates.
